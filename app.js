@@ -13,11 +13,10 @@ app.use(morgan("tiny"));
 
 // required env
 require("dotenv/config");
-// app.get(`${api}/products`, (req, res) => {
-//   const newProduct = {};
-// });
 
-const api = process.env.API_URL;
+// require routes
+app.use("/api/v1", require("./routes/index"));
+
 app.listen(PORT, (err) => {
   if (err) {
     console.log("error to run server");
