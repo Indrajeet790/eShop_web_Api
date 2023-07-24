@@ -64,7 +64,7 @@ module.exports.updateProduct = async (req, res) => {
 // delete a category
 module.exports.deleteProduct = async (req, res) => {
   try {
-    const product = await Productroduct.findByIdAndDelete(req.params.id);
+    const product = await product.findByIdAndDelete(req.params.id);
     if (product) {
       return res
         .status(200)
