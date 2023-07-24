@@ -14,4 +14,7 @@ router.post("/createCategory", categoryController.addCategory);
 // delete a category with the help of id
 router.delete("/delete/:id", categoryController.deleteCategory);
 
+// update a category with the help of id
+router.put("/update/:id", categoryController.updateCategory);
+
 module.exports = router;
