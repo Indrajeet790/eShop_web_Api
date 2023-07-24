@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 // product routes
-router.use("/", require("./product"));
+router.use("/product", require("./product"));
 // category routes
-router.use("/",require("./category"))
+router.use("/category", require("./category"));
 
 module.exports = router;
