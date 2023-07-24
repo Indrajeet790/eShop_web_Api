@@ -9,9 +9,10 @@ const categorySchema = new mongoose.Schema({
     type: String,
   },
   color: {
-    type: String,
+    type: String
   },
-});
+});    
+
 
 // categorySchema.virtual('id').get(function () {
 //     return this._id.toHexString();
