@@ -36,6 +36,11 @@ const productSchema = new mongoose.Schema({
     min: 0,
     max: 255,
   },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
+  },
   rating: {
     type: Number,
     default: 0,
