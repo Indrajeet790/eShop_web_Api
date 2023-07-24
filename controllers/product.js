@@ -17,6 +17,24 @@ module.exports.productList = async (req, res) => {
   }
 };
 
+// find product by id
+module.exports.productById = async (req, res) => {
+  try {
+    // find productList if product present
+    const productById = await Product.find(req.params.id);
+    if (!productById) {
+      return res
+        .status(404)
+        .json({ success: false, message: "product is not found" });
+      // res.status(500).json({ success: false });
+    } else {
+      res.status(200).send(productById);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports.addProduct = async (req, res) => {
   try {
     const newProduct = await Product.create(req.body);
