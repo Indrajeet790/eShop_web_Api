@@ -3,7 +3,7 @@ const Product = require("../models/product");
 module.exports.productList = async (req, res) => {
   try {
     // find productList if product present
-    const productList = await Product.find({});
+    const productList = await Product.find({}).populate("category");
     if (!productList) {
       return res
         .status(404)
@@ -21,7 +21,7 @@ module.exports.productList = async (req, res) => {
 module.exports.productById = async (req, res) => {
   try {
     // find productList if product present
-    const product = await Product.find(req.params.id);
+    const product = await Product.find(req.params.id).populate("category");
     if (!product) {
       return res
         .status(404)
