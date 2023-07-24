@@ -21,14 +21,14 @@ module.exports.productList = async (req, res) => {
 module.exports.productById = async (req, res) => {
   try {
     // find productList if product present
-    const productById = await Product.find(req.params.id);
-    if (!productById) {
+    const product = await Product.find(req.params.id);
+    if (!product) {
       return res
         .status(404)
         .json({ success: false, message: "product is not found" });
       // res.status(500).json({ success: false });
     } else {
-      res.status(200).send(productById);
+      res.status(200).send(product);
     }
   } catch (err) {
     console.log(err);
@@ -41,5 +41,23 @@ module.exports.addProduct = async (req, res) => {
     res.status(201).json(newProduct);
   } catch (err) {
     res.status(500).json(err.message);
+  }
+};
+
+// update product by id
+module.exports.updateProduct = async (req, res) => {
+  try {
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body);
+    if (product) {
+      return res
+        .status(200)
+        .json({ success: true, message: "category updated successfully" });
+    } else {
+      return res
+        .status(400)
+        .json({ success: false, message: "category is not updated" });
+    }
+  } catch (err) {
+    console.log(err);
   }
 };
