@@ -3,13 +3,13 @@ const categoryController = require("../controllers/Category");
 const router = express.Router();
 
 // find all category  categoryList
-router.get("/categoryList", categoryController.categoryList);
+router.get("/list", categoryController.categoryList);
 
 // find category with the help of id
-router.get("/categoryList/:id", categoryController.findCategory);
+router.get("/list/:id", categoryController.findCategory);
 
 // create a new category
-router.post("/createCategory", categoryController.addCategory);
+router.post("/create", categoryController.addCategory);
 
 // delete a category with the help of id
 router.delete("/delete/:id", categoryController.deleteCategory);
