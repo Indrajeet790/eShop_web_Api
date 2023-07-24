@@ -61,3 +61,20 @@ module.exports.updateProduct = async (req, res) => {
     console.log(err);
   }
 };
+// delete a category
+module.exports.deleteProduct = async (req, res) => {
+  try {
+    const product = await Productroduct.findByIdAndDelete(req.params.id);
+    if (product) {
+      return res
+        .status(200)
+        .json({ success: true, message: "category is deleted" });
+    } else {
+      return res
+        .status(404)
+        .json({ success: false, message: "category is not found" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
