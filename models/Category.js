@@ -9,9 +9,10 @@ const categorySchema = new mongoose.Schema({
     type: String,
   },
   color: {
-    type: String,
+    type: String
   },
-});
+});    
+
 
 // categorySchema.virtual('id').get(function () {
 //     return this._id.toHexString();
@@ -22,4 +23,4 @@ const categorySchema = new mongoose.Schema({
 // });
 
 const Category = mongoose.model("Category", categorySchema);
-module.exports = Category;
+module.exports = Category;    
